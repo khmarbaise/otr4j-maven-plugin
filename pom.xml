@@ -1,0 +1,194 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.soebes.smpp</groupId>
+    <artifactId>smpp</artifactId>
+    <version>7.0.6</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.soebes.maven.plugins</groupId>
+  <artifactId>otr4j-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>OTR4J Maven Plugin</name>
+  <url>https://github.com/khmarbaise/otr4j-maven-plugin</url>
+
+  <inceptionYear>2026</inceptionYear>
+  <description>The Open Test Reporting For Java Maven Plugin</description>
+
+  <properties>
+    <mavenVersion>3.9.0</mavenVersion>
+    <maven.compiler.release>17</maven.compiler.release>
+    <enforcer.skip>true</enforcer.skip>
+  </properties>
+
+  <prerequisites>
+    <maven>${mavenVersion}</maven>
+  </prerequisites>
+
+  <scm>
+    <connection>scm:git:https://github.com/khmarbaise/otr4j-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/khmarbaise/otr4j-maven-plugin.git</developerConnection>
+    <url>https://github.com/khmarbaise/otr4j-maven-plugin</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <url>scm:git:git@github.com:khmarbaise/otr4j-maven-plugin.git</url>
+    </site>
+  </distributionManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-core</artifactId>
+        <version>${mavenVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>${mavenVersion}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.plugin-tools</groupId>
+        <artifactId>maven-plugin-annotations</artifactId>
+        <version>3.15.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>6.0.1</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.opentest4j.reporting</groupId>
+        <artifactId>open-test-reporting-tooling-core</artifactId>
+        <version>0.2.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.opentest4j.reporting</groupId>
+        <artifactId>open-test-reporting-tooling-spi</artifactId>
+        <version>0.2.7</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-reporting</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opentest4j.reporting</groupId>
+      <artifactId>open-test-reporting-tooling-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.opentest4j.reporting</groupId>
+      <artifactId>open-test-reporting-tooling-spi</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-plugin</artifactId>
+          <version>3.15.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>mrm-maven-plugin</artifactId>
+          <version>1.7.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-invoker-plugin</artifactId>
+          <version>3.10.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>helpmojo</goal>
+              <goal>descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>run-its</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.gmaven</groupId>
+            <artifactId>gmaven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>mrm-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <configuration>
+              <cloneClean>true</cloneClean>
+              <writeJunitReport>true</writeJunitReport>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+              <showVersion>true</showVersion>
+              <showErrors>true</showErrors>
+              <preBuildHookScript>setup</preBuildHookScript>
+              <postBuildHookScript>verify</postBuildHookScript>
+              <filterProperties>
+                <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                <repository.proxy.url>${repository.proxy.url}</repository.proxy.url>
+              </filterProperties>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-tests</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
