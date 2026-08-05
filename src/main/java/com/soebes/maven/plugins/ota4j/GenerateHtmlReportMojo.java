@@ -66,7 +66,7 @@ public class GenerateHtmlReportMojo
       throw new MojoExecutionException(e);
     }
 
-    getLog().info("Wrote HTML report to " + htmlFile.toUri());
+    getLog().info("Written HTML report to " + htmlFile.toString());
   }
 
 }
