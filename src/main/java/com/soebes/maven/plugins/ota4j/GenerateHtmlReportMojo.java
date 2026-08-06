@@ -17,10 +17,13 @@
  */
 package com.soebes.maven.plugins.ota4j;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -47,25 +50,40 @@ public class GenerateHtmlReportMojo
   private Path xmlFile;
 
   /**
+   * Define the resulting HTML report directory.
+   */
+  @Parameter(defaultValue = "${project.reporting.outputDirectory}", required = true)
+  private Path outputDirectory;
+
+  /**
    * Define the resulting HTML report file.
    */
-  @Parameter(defaultValue = "${project.build.directory}/open-test-report.html", required = true)
-  private Path htmlFile;
+  @Parameter(defaultValue = "open-test-report.html", required = true)
+  private String htmlTestReportFile;
 
   public void execute()
-      throws MojoExecutionException {
+      throws MojoExecutionException, MojoFailureException {
     if (isSkip()) {
       getLog().info("Skipped due to configuration request.");
       return;
     }
 
+    getLog().info("Checking outputDirectory " + outputDirectory.normalize());
+    if (!Files.exists(outputDirectory)) {
+      try {
+        Files.createDirectories(outputDirectory);
+      } catch (IOException e) {
+        throw new MojoFailureException("Could not create " + outputDirectory, e);
+      }
+    }
+
+    var htmlFile = outputDirectory.resolve(htmlTestReportFile);
     getLog().info("Started generating HTML report.");
     try {
       new DefaultHtmlReportWriter().writeHtmlReport(List.of(xmlFile), htmlFile);
     } catch (Exception e) {
-      throw new MojoExecutionException(e);
+      throw new MojoFailureException(e);
     }
-
     getLog().info("Written HTML report to " + htmlFile.toString());
   }
 
