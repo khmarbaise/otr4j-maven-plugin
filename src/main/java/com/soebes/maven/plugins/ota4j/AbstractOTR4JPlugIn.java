@@ -1,4 +1,4 @@
-/**
+/*
  * The OTR4J Maven Plugins
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with

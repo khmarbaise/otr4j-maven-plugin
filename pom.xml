@@ -21,7 +21,7 @@
   <description>The Open Test Reporting For Java Maven Plugin</description>
 
   <properties>
-    <mavenVersion>3.9.0</mavenVersion>
+    <mavenVersion>3.9.10</mavenVersion>
     <maven.compiler.release>17</maven.compiler.release>
     <enforcer.skip>true</enforcer.skip>
   </properties>
@@ -137,12 +137,10 @@
           <execution>
             <goals>
               <goal>helpmojo</goal>
-              <goal>descriptor</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
   <profiles>
