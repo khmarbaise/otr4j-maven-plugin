@@ -22,7 +22,7 @@ will generate the HTML reports.
 ## Usage
 
 
-[maven-central]: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.soebes.maven.plugins%22%20a%3A%22otr4j-maven-plugin%22
+[maven-central]: https://central.sonatype.com/search?q=%22com.soebes.maven.plugins%22%20%20a:%22otr4j-maven-plugin%22
 [shield-central]: https://img.shields.io/maven-central/v/com.soebes.maven.plugins/otr4j-maven-plugin.svg?label=Maven%20Central
 [shield-license]: https://img.shields.io/github/license/khmarbaise/otr4j-maven-plugin.svg?label=License
 [apache-license]: https://www.apache.org/licenses/
