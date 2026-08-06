@@ -11,6 +11,9 @@ will generate the HTML reports.
 
 # Overview
 
+This plugins has been created based on the idea https://github.com/ota4j-team/open-test-reporting/issues/734
+to have a real Maven Plugin which can be used instead of using exec-maven-plugin.
+
 ## License
 
 [Apache License, Version 2.0, January 2004](http://www.apache.org/licenses/)
