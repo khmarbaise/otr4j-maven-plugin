@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     container: "maven:3.9.16-temurin-${{ matrix.jdk }}-alpine"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
 #      - uses: actions/cache@v1
 #        with:
 #          path: ~/.m2/repository

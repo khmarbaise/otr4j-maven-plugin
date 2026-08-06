@@ -36,7 +36,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-#          cache: 'maven'
           check-latest: true
       - name: Set up Maven
         uses: stCarolas/setup-maven@v5
