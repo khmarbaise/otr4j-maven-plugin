@@ -33,5 +33,5 @@ to have a real Maven Plugin which can be used instead of using exec-maven-plugin
 [jdkbuilds]: https://github.com/khmarbaise/otr4j-maven-plugin/actions?query=workflow%3AJDKBuilds
 [mainbuilds]: https://github.com/khmarbaise/otr4j-maven-plugin/actions?query=workflow%3AMain
 [published-site]: https://khmarbaise.github.io/otr4j-maven-plugin/
-[published-site-snaptshot]: https://khmarbaise.github.io/otr4j-maven-plugin/snapshot
+[published-site-snapshot]: https://khmarbaise.github.io/otr4j-maven-plugin/snapshot
 [central-search]: https://search.maven.org/search?q=%22com.soebes.maven.plugins%22%20AND%20a:%22otr4j-maven-plugin%22
