@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.soebes.maven.plugins.ota4j","l":"AbstractOTR4JPlugIn"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.soebes.maven.plugins.ota4j","l":"GenerateHtmlReportMojo"},{"p":"com.soebes.maven.plugins.otr4j_maven_plugin","l":"HelpMojo"}];updateSearchResults();
