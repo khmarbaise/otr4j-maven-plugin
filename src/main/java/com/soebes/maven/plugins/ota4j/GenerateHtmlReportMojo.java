@@ -1,5 +1,6 @@
 /*
- * The OTR4J Maven Plugins
+ * The OTR4J Maven Plugin
+ *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -22,47 +23,47 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.opentest4j.reporting.tooling.core.htmlreport.DefaultHtmlReportWriter;
 
 /**
+ * This goal will generate the HTML report from the XML file provided by the
+ * previous unit- integration test execution.
+ *
  * @author <a href="mailto:kama@soebes.de">Karl Heinz Marbaise</a>
  */
 @Mojo(
     name = "htmlreport",
     requiresProject = true,
     threadSafe = true,
-    requiresDependencyCollection = ResolutionScope.TEST,
     defaultPhase = LifecyclePhase.TEST
 )
 public class GenerateHtmlReportMojo
     extends AbstractOTR4JPlugIn {
 
   /**
-   * Define the default XML source file.
+   * Define the default XML source file location.
    */
   @Parameter(defaultValue = "${project.build.directory}/open-test-report.xml", required = true)
   private Path xmlFile;
 
   /**
-   * Define the resulting HTML report directory.
+   * Define the output directory for the generated HTML report.
    */
   @Parameter(defaultValue = "${project.reporting.outputDirectory}", required = true)
   private Path outputDirectory;
 
   /**
-   * Define the resulting HTML report file.
+   * Define the resulting HTML report file name.
    */
   @Parameter(defaultValue = "open-test-report.html", required = true)
   private String htmlTestReportFile;
 
   public void execute()
-      throws MojoExecutionException, MojoFailureException {
+      throws MojoFailureException {
     if (isSkip()) {
       getLog().info("Skipped due to configuration request.");
       return;

@@ -20,8 +20,9 @@
   <description>The Open Test Reporting For Java Maven Plugin</description>
 
   <properties>
-    <mavenVersion>3.9.10</mavenVersion>
+    <mavenVersion>3.9.0</mavenVersion>
     <maven.compiler.release>17</maven.compiler.release>
+    <smpp.component>otr4j-maven-plugin</smpp.component>
     <enforcer.skip>true</enforcer.skip>
   </properties>
 
@@ -113,6 +114,11 @@
           <version>3.15.2</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-report-plugin</artifactId>
+          <version>3.15.2</version>
+        </plugin>
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>mrm-maven-plugin</artifactId>
           <version>1.7.1</version>
@@ -180,4 +186,19 @@
     </profile>
   </profiles>
 
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-report-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report-no-fork</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
