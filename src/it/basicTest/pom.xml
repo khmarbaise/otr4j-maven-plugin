@@ -105,7 +105,7 @@
           <properties>
             <configurationParameters>
               junit.platform.reporting.open.xml.enabled = true
-              <!--              junit.platform.reporting.output.dir = target/surefire-reports-->
+              junit.platform.reporting.open.xml.git.enabled=true
             </configurationParameters>
           </properties>
         </configuration>

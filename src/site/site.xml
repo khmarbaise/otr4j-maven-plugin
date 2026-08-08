@@ -25,6 +25,10 @@
     <menu name="Overview">
       <item name="Plugin Documentation" href="plugin-info.html"/>
     </menu>
+    <menu name="Examples">
+      <item name="Default Configuration" href="example-default.html"/>
+      <item name="Different Location" href="example-configured.html"/>
+    </menu>
   </body>
 </site>
 
