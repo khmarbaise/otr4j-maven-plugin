@@ -43,7 +43,7 @@ in your project. That wil generate appropriate XML report which are required as 
         <plugin>
           <groupId>com.soebes.maven.plugins</groupId>
           <artifactId>otr4j-maven-plugin</artifactId>
-          <version>0.1.1</version>
+          <version>0.2.0</version>
           <executions>
             <execution>
               <id>htmlreport</id>

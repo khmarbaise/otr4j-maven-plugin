@@ -10,7 +10,7 @@ the OTR4J-Maven-Plugin. It is also possible to change the file name of the resul
 <plugin>
   <groupId>com.soebes.maven.plugins</groupId>
   <artifactId>otr4j-maven-plugin</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
   <configuration>
     <xmlFile>Location of the open-test-report.xml</xmlFile>
     <outputDirectory>The output directory where the resulting HTML report will be written to</outputDirectory>
