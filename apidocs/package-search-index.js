@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.soebes.maven.plugins.ota4j"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.soebes.maven.plugins.ota4j"},{"l":"com.soebes.maven.plugins.otr4j_maven_plugin"}];updateSearchResults();
