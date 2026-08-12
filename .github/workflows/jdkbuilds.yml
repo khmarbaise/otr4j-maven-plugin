@@ -31,7 +31,7 @@ jobs:
       matrix:
         mvn: [3.9.16,4.0.0-rc-5]
         jdk: [17, 21, 25]
-    name: "OpenJDK ${{ matrix.jdk }}"
+    name: "${{ matrix.mvn }} - JDK ${{ matrix.jdk }}"
     runs-on: ubuntu-latest
     container: "maven:${{ matrix.mvn }}-eclipse-temurin-${{ matrix.jdk }}-alpine"
     steps:
