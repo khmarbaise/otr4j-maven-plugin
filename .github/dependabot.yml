@@ -13,6 +13,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    # Keep Maven 3.9.0 compatibility do not update core/plugin-api
+    ignore:
+      - dependency-name: "org.apache.maven:maven-core"
+      - dependency-name: "org.apache.maven:maven-plugin-api"
     labels:
       - "dependencies"
       - "dependency-upgrade"

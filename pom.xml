@@ -20,7 +20,7 @@
   <description>The Open Test Reporting For Java Maven Plugin</description>
 
   <properties>
-    <mavenVersion>3.9.16</mavenVersion>
+    <mavenVersion>3.9.0</mavenVersion>
     <maven.compiler.release>17</maven.compiler.release>
     <smpp.component>otr4j-maven-plugin</smpp.component>
     <enforcer.skip>true</enforcer.skip>
