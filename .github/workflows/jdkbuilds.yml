@@ -43,4 +43,4 @@ jobs:
 #          restore-keys: |
 #            ${{ runner.os }}-maven-${{ matrix.jdk }}-
       - name: 'Build'
-        run: mvn -V --no-transfer-progress --color always clean verify -Prun-its --fail-at-end
+        run: mvn -V --no-transfer-progress --color always verify -Prun-its --fail-at-end
