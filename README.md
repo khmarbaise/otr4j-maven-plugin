@@ -25,6 +25,11 @@ to have a real Maven Plugin which can be used instead of using exec-maven-plugin
 
 ## Usage
 
+## System Requirements
+
+* JDK 17+
+* Maven 3.9.0+
+ 
 
 [maven-central]: https://central.sonatype.com/search?q=%22com.soebes.maven.plugins%22%20%20a:%22otr4j-maven-plugin%22
 [shield-central]: https://img.shields.io/maven-central/v/com.soebes.maven.plugins/otr4j-maven-plugin.svg?label=Maven%20Central
